@@ -11,7 +11,7 @@
         android:minHeight="80dp">
 
         <Button
-            android:id="@+id/btc_c"
+            android:id="@+id/btn_c"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:background="@color/numbersColor"
@@ -27,7 +27,7 @@
             android:text="%" />
 
         <Button
-            android:id="@+id/btn_erase"
+            android:id="@+id/btn_delete"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:background="@color/numbersColor"
