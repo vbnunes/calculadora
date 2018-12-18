@@ -75,7 +75,7 @@
             android:text="9" />
 
         <Button
-            android:id="@+id/btn_X"
+            android:id="@+id/btn_mult"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/operatorsColors"
@@ -172,7 +172,7 @@
         android:gravity="left">
 
         <Button
-            android:id="@+id/btn2"
+            android:id="@+id/btn_0"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:background="@color/numbersColor"
@@ -180,7 +180,7 @@
             android:text="0" />
 
         <Button
-            android:id="@+id/btn3"
+            android:id="@+id/btn_dot"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:background="@color/numbersColor"
@@ -189,7 +189,7 @@
 
         <Button
 
-            android:id="@+id/btn4"
+            android:id="@+id/btn_equals"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/operatorsColors"

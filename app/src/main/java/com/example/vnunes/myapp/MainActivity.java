@@ -1,5 +1,6 @@
 package com.example.vnunes.myapp;
 
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -8,11 +9,15 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
+    private int result = 0;
+    private boolean needoToClean = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Button btn0 = findViewById(R.id.btn_0);
         Button btn1 = findViewById(R.id.btn_1);
         Button btn2 = findViewById(R.id.btn_2);
         Button btn3 = findViewById(R.id.btn_3);
@@ -23,7 +28,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button btn8 = findViewById(R.id.btn_8);
         Button btn9 = findViewById(R.id.btn_9);
         Button btndelete = findViewById(R.id.btn_delete);
+        Button btnc = findViewById(R.id.btn_c);
+        Button btnplus = findViewById(R.id.btn_plus);
+        Button btnminus = findViewById(R.id.btn_minus);
+        Button btnmult = findViewById(R.id.btn_mult);
+        Button btndiv = findViewById(R.id.btn_div);
+        Button btnequals = findViewById(R.id.btn_equals);
 
+        btn0.setOnClickListener(this);
         btn1.setOnClickListener(this);
         btn2.setOnClickListener(this);
         btn3.setOnClickListener(this);
@@ -34,11 +46,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn8.setOnClickListener(this);
         btn9.setOnClickListener(this);
         btndelete.setOnClickListener(this);
+        btnc.setOnClickListener(this);
+        btnplus.setOnClickListener(this);
+        btnequals.setOnClickListener(this);
+        btnmult.setOnClickListener(this);
+        btndiv.setOnClickListener(this);
+        btnminus.setOnClickListener(this);
     }
 
     public void onClick(View v){
         TextView userInput = findViewById(R.id.userInput);
-        switch (v.getId()){
+        TextView userResult = findViewById(R.id.userResult);
+        switch (v.getId()) {
             case R.id.btn_1:
                 userInput.setText(userInput.getText() + "1");
                 break;
@@ -67,7 +86,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 userInput.setText(userInput.getText() + "9");
                 break;
             case R.id.btn_delete:
-                userInput.setText(userInput.getText().toString().substring(0, userInput.getText().length() - 1));
+                if (!userInput.getText().toString().equals(""))
+                    userInput.setText(userInput.getText().toString().substring(0, userInput.getText().length() - 1));
+                break;
+            case R.id.btn_c:
+                userInput.setText("");
+                break;
+            case R.id.btn_plus:
+                userInput.setText(userInput.getText() + "+");
+                break;
+            case R.id.btn_minus:
+                userInput.setText(userInput.getText() + "-");
+                break;
+            case R.id.btn_mult:
+                userInput.setText(userInput.getText() + "*");
+                break;
+            case R.id.btn_div:
+                userInput.setText(userInput.getText() + "/");
+                break;
+            case R.id.btn_equals:
+                userResult.setText(""+Calculator.solveExpression(userInput.getText().toString()));
                 break;
 
         }
