@@ -3,14 +3,18 @@ package com.example.vnunes.myapp;
 import java.util.Arrays;
 import java.util.List;
 
-public class Validade {
-    private static List<String> OPERATORS = Arrays.asList("+", "-", "*", "/");
+public class Validate {
+    private static List<Character> OPERATORS = Arrays.asList('+', '-', '*', '/');
 
     public static boolean validadeExpression(String expression){
         char[] tokens = expression.toCharArray();
 
+        if(expression.matches(""))
+            return false;
+
         if(tokens[0] == ')')
             return false;
+
         if(OPERATORS.contains(tokens[0]) || OPERATORS.contains(tokens[tokens.length-1]))
             return false;
 

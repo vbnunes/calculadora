@@ -1,16 +1,13 @@
 package com.example.vnunes.myapp;
 
-import android.graphics.Color;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-
-    private int result = 0;
-    private boolean needoToClean = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +51,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnminus.setOnClickListener(this);
     }
 
-    public void onClick(View v){
+    public void onClick(View v) {
         TextView userInput = findViewById(R.id.userInput);
         TextView userResult = findViewById(R.id.userResult);
         switch (v.getId()) {
@@ -105,9 +102,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 userInput.setText(userInput.getText() + "/");
                 break;
             case R.id.btn_equals:
-                userResult.setText(""+Calculator.solveExpression(userInput.getText().toString()));
+                if (!Validate.validadeExpression(userInput.getText().toString())) {
+                    Toast.makeText(this, "It's not a valid expression", Toast.LENGTH_SHORT).show();
+                }else{
+                    userResult.setText("" + Calculator.solveExpression(userInput.getText().toString()));
+                }
                 break;
-
         }
     }
 }

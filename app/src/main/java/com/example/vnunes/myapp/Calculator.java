@@ -1,8 +1,15 @@
 package com.example.vnunes.myapp;
 
+import android.app.Application;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Stack;
 
-public class Calculator {
+public class Calculator extends Application {
+
+    private static ArrayList<String> OPERATORS = new ArrayList<>(Arrays.asList("+", "-", "*", "/"));
+
     public static int solveExpression(String expression) {
         char[] tokens = expression.toCharArray();
         
