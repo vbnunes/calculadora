@@ -11,20 +11,20 @@
         android:minHeight="80dp">
 
         <Button
-            android:id="@+id/btn_c"
+            android:id="@+id/btn_p1"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:background="@color/numbersColor"
             android:layout_margin="2dp"
-            android:text="C" />
+            android:text="(" />
 
         <Button
-            android:id="@+id/btn_perc"
+            android:id="@+id/btn_p2"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:background="@color/numbersColor"
             android:layout_margin="2dp"
-            android:text="%" />
+            android:text=")" />
 
         <Button
             android:id="@+id/btn_delete"

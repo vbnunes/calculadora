@@ -25,7 +25,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button btn8 = findViewById(R.id.btn_8);
         Button btn9 = findViewById(R.id.btn_9);
         Button btndelete = findViewById(R.id.btn_delete);
-        Button btnc = findViewById(R.id.btn_c);
+        Button btnp1 = findViewById(R.id.btn_p1);
+        Button btnp2 = findViewById(R.id.btn_p2);
         Button btnplus = findViewById(R.id.btn_plus);
         Button btnminus = findViewById(R.id.btn_minus);
         Button btnmult = findViewById(R.id.btn_mult);
@@ -43,7 +44,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn8.setOnClickListener(this);
         btn9.setOnClickListener(this);
         btndelete.setOnClickListener(this);
-        btnc.setOnClickListener(this);
+        btnp1.setOnClickListener(this);
+        btnp2.setOnClickListener(this);
         btnplus.setOnClickListener(this);
         btnequals.setOnClickListener(this);
         btnmult.setOnClickListener(this);
@@ -86,8 +88,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if (!userInput.getText().toString().equals(""))
                     userInput.setText(userInput.getText().toString().substring(0, userInput.getText().length() - 1));
                 break;
-            case R.id.btn_c:
-                userInput.setText("");
+            case R.id.btn_p1:
+                userInput.setText(userInput.getText()+"(");
+                break;
+            case R.id.btn_p2:
+                userInput.setText(userInput.getText()+")");
                 break;
             case R.id.btn_plus:
                 userInput.setText(userInput.getText() + "+");

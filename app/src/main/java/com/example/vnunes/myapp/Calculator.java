@@ -2,14 +2,9 @@ package com.example.vnunes.myapp;
 
 import android.app.Application;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Stack;
 
 public class Calculator extends Application {
-
-    private static ArrayList<String> OPERATORS = new ArrayList<>(Arrays.asList("+", "-", "*", "/"));
-
     public static int solveExpression(String expression) {
         char[] tokens = expression.toCharArray();
         
@@ -45,8 +40,7 @@ public class Calculator extends Application {
             }
 
             // Current token is an operator.
-            else if (tokens[i] == '+' || tokens[i] == '-' ||
-                    tokens[i] == '*' || tokens[i] == '/')
+            else if (Validate.getOPERATORS().contains(tokens[i]))
             {
                 while (!operators.empty() && hasPrecedence(tokens[i], operators.peek()))
                     numbers.push(applyOp(operators.pop(), numbers.pop(), numbers.pop()));
